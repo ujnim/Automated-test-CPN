@@ -26,9 +26,11 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: [['html', {open:'never'}]],
   reporter: [
+    // ['list'],
     ['html', { open: 'never' }],
     ['./src/utils/report.ts'], 
-    ['./src/utils/summary-reporter.ts']
+    ['./src/utils/summary-reporter.ts'],
+    ['./src/utils/google-reporter', { someOption: 'value' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

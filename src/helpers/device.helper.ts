@@ -1,5 +1,5 @@
 import { validateApiResponse } from '../utils/global';
-import { CreateDeviceLocationRequest, ApiResponse, DeviceLocationData } from '../interfaces/device.interface';
+import { CreateDeviceLocationRequest, ApiResponse, DeviceLocationData, DevicesStatusResponse } from '../interfaces/device.interface';
 
 
 // Device Location
@@ -22,4 +22,9 @@ export const syncAllDevices = async (request: any, baseURL: string) => {
 export const syncDevicesForUser = async (request: any, baseURL: string, userId: string) => {
     const res = await request.post(`${baseURL}/v1/devices/sync/users/${userId}`);
     return validateApiResponse<ApiResponse<boolean>>(res, `${baseURL}/v1/devices/sync/users/${userId}`);
+};
+
+export const devicesForUser = async (request: any, baseURL: string, userId: string) => {
+    const res = await request.get(`${baseURL}/v1/devices/users/${userId}`);
+    return validateApiResponse<DevicesStatusResponse>(res, `${baseURL}/v1/devices/users/${userId}`);
 };

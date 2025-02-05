@@ -6,9 +6,7 @@ export interface AlertLocation {
 }
 
 export interface CreateAlertRequest {
-    username: string;
-    tenant_id: number;
-    location: AlertLocation;
+    device_id: string;
 }
 
 export interface CreateAlertResponse {

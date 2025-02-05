@@ -7,7 +7,7 @@ import { syncUsers, createUserProfile, getUserProfile, updateUserProfile } from 
  * ✅ UNIT TESTS
  */
 test.describe('Users - Unit Tests', () => {
-    const userId: string = '3';
+    const userId: string = '1';
 
     test('Should successfully synchronize user data', async ({ request, baseURL }) => {
         const body = await syncUsers(request, baseURL!);

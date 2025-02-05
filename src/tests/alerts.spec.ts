@@ -11,14 +11,7 @@ test.describe('Alerts - Unit Tests', () => {
 
   test('Should create a new alert and synchronize devices successfully', async ({ request, baseURL }) => {
     const alertData: CreateAlertRequest = {
-      username: 'admin',
-      tenant_id: 10,
-      location: {
-        lat: 10,
-        lng: 10,
-        name: 'Automated test',
-        location_type: 1,
-      },
+      device_id: 'ebd9d8745175442ed3hms9'
     };
 
     const body = await createAlert(request, baseURL!, alertData);
