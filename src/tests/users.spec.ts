@@ -6,19 +6,8 @@ import { syncUsers, createUserProfile, getUserProfile, updateUserProfile } from 
 /**
  * ✅ UNIT TESTS
  */
-test.describe('Users - Unit Tests', () => {
+test.describe.serial('Users - Unit Tests', () => {
     const userId: string = '1';
-
-    test('Should successfully synchronize user data', async ({ request, baseURL }) => {
-        const body = await syncUsers(request, baseURL!);
-
-        expect(body).toEqual(expect.objectContaining({
-            is_success: true,
-            status_code: 200,
-            message: 'Users synced successfully',
-            data: true,
-        }));
-    });
 
     test('Should create a new user profile successfully', async ({ request, baseURL }) => {
         const body = await createUserProfile(request, baseURL!, userId);
@@ -64,6 +53,17 @@ test.describe('Users - Unit Tests', () => {
             is_success: true,
             status_code: 200,
             message: 'User profile updated successfully',
+            data: true,
+        }));
+    });
+
+    test('Should successfully synchronize user data', async ({ request, baseURL }) => {
+        const body = await syncUsers(request, baseURL!);
+
+        expect(body).toEqual(expect.objectContaining({
+            is_success: true,
+            status_code: 200,
+            message: 'Users synced successfully',
             data: true,
         }));
     });

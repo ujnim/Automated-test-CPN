@@ -46,7 +46,7 @@ test.describe('Tenants - Unit Tests', () => {
   });
 
 
-  test.only('Should retrieve and verify all devices for the tenant successfully', async ({ request, baseURL }) => {
+  test('Should retrieve and verify all devices for the tenant successfully', async ({ request, baseURL }) => {
 
     const body = await getTenantDevices(request, baseURL!, tenantId, data);
 
